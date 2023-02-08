@@ -1,6 +1,6 @@
 # aifwing
 
-Low-cost aerial surveillance drone for urban environments with full autopilot.
+Low-cost aerial surveillance aircraft with full autopilot designed for urban environments.
 
 ## Build Materials
 
