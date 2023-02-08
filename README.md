@@ -1,5 +1,6 @@
 # aifwing
-Low cost aerial surveillance drone
+
+Low cost aerial surveillance drone for urban environments
 
 ## Bill of Materials Per Unit
 
@@ -15,9 +16,11 @@ Bill of materials and estimated cost are accurate as of time of writing.
 | 1x | HiLetGo ESP32 Mini | Flight Controller | $6.50 |
 | 1x | HiLetGo MPU-6050 | IMU | $3.33 |
 | 1x | HiLetGo QMC5883L | Barometer | $1.50 |
-| 2x | HiLetGo HC-12 | Radio Receiver | $10.00 |
+| 1x | HiLetGo HC-12 | Radio Receiver | $10.00 |
 | 1x | HiLetgo NEO-6M | GPS | $10.00 |
 | 1x | Dollar Tree Foam Board | Frame| $1.00 |
+
+__Total cost per unit: $112.3__
 
 ### Amazon Shopping List
 
