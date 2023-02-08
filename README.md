@@ -13,3 +13,5 @@ In order to quell unrest, law enforcement departments have adopted a number of s
 These strategies generally rely on limited visibility from the ground, blinding protesters to the larger movement of law enforcement.
 In addition, it is often not possible to record the actions of police officers after they have detained protesters.
 To resolve these vulnerabilities, this project aims to provide ultra low-cost aerial surveillance technology for the masses.
+
+## [Click here to get started](/wiki)
