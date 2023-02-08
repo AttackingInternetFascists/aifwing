@@ -9,6 +9,8 @@
 #include "esp32icarus.h" //Alex
 #elif CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_ESP32_EMPTY
 #include "esp32empty.h" //wiktor-m
+#elif CONFIG_HAL_BOARD_SUBTYPE == HAL_BOARD_SUBTYPE_ESP32_AIF
+#include "esp32aif.h" //@AttackingInternetFascists
 #endif
 
 #define HAL_BOARD_NAME "ESP32"

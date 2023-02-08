@@ -12,7 +12,7 @@ jobs:
       fail-fast: false  # don't cancel if a job from the matrix fails
       matrix:
         config: [
-            esp32buzz,
+            esp32aif,
         ]
         gcc: [10]
 
