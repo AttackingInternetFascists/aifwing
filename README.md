@@ -1,6 +1,6 @@
 # aifwing
 
-Low cost aerial surveillance drone for urban environments
+Low-cost aerial surveillance drone for urban environments with full autopilot.
 
 ## Bill of Materials Per Unit
 
@@ -27,3 +27,8 @@ __Total cost per unit: $112.3__
 For convenience, this shopping list has all electronics necessary to build 3 full drones.
 
 https://www.amazon.com/hz/wishlist/ls/1HFJ2OZSL1WD0
+
+## Inspiration & References
+
+* https://www.flitetest.com/articles/flying-wing-made-from-a-cardboard-pizza-box
+* https://www.flitetest.com/articles/diy-rc-plane-scratch-build-for-60
