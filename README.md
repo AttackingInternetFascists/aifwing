@@ -2,6 +2,12 @@
 
 Low-cost aerial surveillance drone for urban environments with full autopilot.
 
+## Build Materials
+
+ * Hot glue gun
+ * Packing tape
+ * Box cutter
+
 ## Bill of Materials Per Unit
 
 Bill of materials and estimated cost are accurate as of time of writing.
@@ -20,7 +26,7 @@ Bill of materials and estimated cost are accurate as of time of writing.
 | 1x | HiLetgo NEO-6M | GPS | $10.00 |
 | 1x | Dollar Tree Foam Board | Frame| $1.00 |
 
-__Total cost per unit: $112.3__
+__Total cost per unit: ~$115__
 
 ### Amazon Shopping List
 
