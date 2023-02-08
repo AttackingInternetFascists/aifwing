@@ -5,7 +5,7 @@ Low-cost aerial surveillance with full autopilot. Designed for urban environment
 ## Abstract
 
 Over the last few decades the issues of overpolicing, and police misconduct have become unavoidably problematic in the United States.
-Due to multiple factors, such as qualified immunity, American police officers are enabled to commit acts of violence, theft, and murder.
+Due to multiple factors, such as qualified immunity, American police officers are enabled to commit acts of violence, theft, and murder with impunity.
 As a response to these abuses, the American public has begun to rise against law enforcement organizations engaged in these types of behavior.
 True to form, these lawless enforcement agencies continue to commit acts of violence against the very people demanding an end to the violence.
 
