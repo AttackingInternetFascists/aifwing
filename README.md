@@ -2,6 +2,7 @@
 
 Low-cost aerial surveillance aircraft with full autopilot designed for urban environments.
 
+<!--
 ## Build Materials
 
  * Hot glue gun
@@ -38,3 +39,4 @@ https://www.amazon.com/hz/wishlist/ls/1HFJ2OZSL1WD0
 
 * https://www.flitetest.com/articles/flying-wing-made-from-a-cardboard-pizza-box
 * https://www.flitetest.com/articles/diy-rc-plane-scratch-build-for-60
+-->
