@@ -2,8 +2,8 @@
 
 Low-cost aerial surveillance with full autopilot. Designed for urban environments.
 
-[![Build Your Drone](https://img.shields.io/badge/Build%20Your%20Drone-blue?style=for-the-badge)](https://github.com/AttackingInternetFascists/aifwing/wiki/Getting-Started)
-[![Mission Control](https://img.shields.io/badge/Mission%20Control-orange?style=for-the-badge)](https://attackinginternetfascists.github.io/aifwing/)
+|[Build Your Drone](https://github.com/AttackingInternetFascists/aifwing/wiki/Getting-Started)|[Mission Control](https://attackinginternetfascists.github.io/aifwing/)|
+| --- | --- |
 
 ## Abstract
 
