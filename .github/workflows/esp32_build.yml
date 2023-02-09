@@ -65,12 +65,7 @@ jobs:
           which cmake
 
           ./waf configure --board ${{matrix.config}}
-
-      - name: build ${{matrix.config}} plane
-        env:
-          CI_BUILD_TARGET: ${{matrix.config}}
-        shell: bash
-        run: ./waf plane
+          ./waf plane
 
       - name: Archive plane artifacts
         uses: actions/upload-artifact@v3
