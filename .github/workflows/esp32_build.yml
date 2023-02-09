@@ -72,8 +72,8 @@ jobs:
         with:
            name: ${{matrix.config}}-plane-binaries
            path: |
-              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/ardupilot.elf
-              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/ardupilot.bin
-              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
-              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
+              /home/runner/work/aifwing/aifwing/build/esp32aif/esp-idf_build/ardupilot.elf
+              /home/runner/work/aifwing/aifwing/build/esp32aif/esp-idf_build/ardupilot.bin
+              /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
+              /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
            retention-days: 14
