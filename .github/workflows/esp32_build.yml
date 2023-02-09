@@ -11,10 +11,8 @@ jobs:
     strategy:
       fail-fast: false  # don't cancel if a job from the matrix fails
       matrix:
-        config: [
-            esp32aif,
-        ]
         gcc: [10]
+        config: [esp32aif]
 
     steps:
       - uses: actions/checkout@v3
@@ -62,15 +60,19 @@ jobs:
           ./install.sh
           source ./export.sh
           cd ../..
+          
           python -m pip install --progress-bar off future lxml pymavlink MAVProxy pexpect flake8 geocoder empy dronecan
           which cmake
+
           ./waf configure --board ${{matrix.config}}
+          
           ./waf plane
-          cp build/esp32aif/esp-idf_build/ardupilot.elf ./ArduPlane.elf
-          cp build/esp32aif/esp-idf_build/ardupilot.bin ./ArduPlane.bin
+          cp build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./ArduPlane.elf
+          cp build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./ArduPlane.bin
+          
           ./waf copter
-          cp build/esp32aif/esp-idf_build/ardupilot.bin ./ArduCopter.bin
-          cp build/esp32aif/esp-idf_build/ardupilot.elf ./ArduCopter.elf
+          cp build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./ArduCopter.bin
+          cp build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./ArduCopter.elf
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
@@ -81,9 +83,7 @@ jobs:
               /home/runner/work/ardupilot/ardupilot/ArduPlane.elf
               /home/runner/work/ardupilot/ardupilot/ArduCopter.bin
               /home/runner/work/ardupilot/ardupilot/ArduCopter.elf
-              /home/runner/work/ardupilot/ardupilot/build/esp32aif/esp-idf_build/bootloader/bootloader.bin
-              /home/runner/work/ardupilot/ardupilot/build/esp32aif/esp-idf_build/partition_table/partition-table.bin
-
-
+              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
+              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
            retention-days: 14
            
