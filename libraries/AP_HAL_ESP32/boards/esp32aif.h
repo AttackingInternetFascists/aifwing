@@ -78,12 +78,10 @@
 
 //BAROMETER
 #define PROBE_BARO_I2C(driver, bus, addr, args ...) ADD_BACKEND(AP_Baro_ ## driver::probe(*this,std::move(GET_I2C_DEVICE(bus, addr)),##args))
-#define HAL_BARO_PROBE_LIST                         PROBE_BARO_I2C(MS56XX, 0, 0x77)		1
+#define HAL_BARO_PROBE_LIST                         PROBE_BARO_I2C(MS56XX, 0, 0x77)
 
 //COMPASS
 #define ALLOW_ARM_NO_COMPASS
-// #define PROBE_MAG_I2C(driver, bus, addr, args ...)  ADD_BACKEND(DRIVER_ ##driver, AP_Compass_ ## driver::probe(GET_I2C_DEVICE(bus, addr),##args))
-// #define HAL_MAG_PROBE_LIST                          PROBE_MAG_I2C(QMC5883L, 0, 0x0d, true, ROTATION_NONE)
 
 //WIFI
 // TODO: Implement MAC scanner
