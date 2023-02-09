@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const [ subdomain, path ] = process.env.GITHUB_REPOSITORY.split('/')
+const [ subdomain, path ] = process.env.GITHUB_REPOSITORY.toLowerCase().split('/')
 
 module.exports = () => {
   return {
