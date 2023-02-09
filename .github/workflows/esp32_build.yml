@@ -18,6 +18,7 @@ jobs:
       - uses: actions/checkout@v3
         with:
           submodules: 'recursive'
+      
       - name: Install Prerequisites
         shell: bash
         run: |
@@ -28,13 +29,13 @@ jobs:
 
           sudo apt remove --purge --auto-remove cmake
           sudo apt update && \
-          sudo apt install -y software-properties-common lsb-release && \
-          sudo apt clean all
+            sudo apt install -y software-properties-common lsb-release && \
+              sudo apt clean all
+          
           wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - | sudo tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null
           sudo apt-add-repository "deb https://apt.kitware.com/ubuntu/ $(lsb_release -cs) main"
           sudo apt update
           sudo apt install cmake
-
 
           git submodule update --init --recursive --depth=1
           ./Tools/scripts/esp32_get_idf.sh
@@ -46,8 +47,7 @@ jobs:
           ./install.sh 2>&1 > /dev/null
           cd ../..
           
-          
-      - name: build ${{matrix.config}}
+      - name: configure ${{matrix.config}}
         env:
           CI_BUILD_TARGET: ${{matrix.config}}
         shell: bash
@@ -65,25 +65,20 @@ jobs:
           which cmake
 
           ./waf configure --board ${{matrix.config}}
-          
-          ./waf plane
-          cp build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./ArduPlane.elf
-          cp build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./ArduPlane.bin
-          
-          ./waf copter
-          cp build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./ArduCopter.bin
-          cp build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./ArduCopter.elf
 
-      - name: Archive artifacts
+      - name: build ${{matrix.config}} plane
+        env:
+          CI_BUILD_TARGET: ${{matrix.config}}
+        shell: bash
+        run: ./waf plane
+
+      - name: Archive plane artifacts
         uses: actions/upload-artifact@v3
         with:
-           name: esp32-binaries -${{matrix.config}}
+           name: ${{matrix.config}}-plane-binaries
            path: |
-              /home/runner/work/ardupilot/ardupilot/ArduPlane.bin
-              /home/runner/work/ardupilot/ardupilot/ArduPlane.elf
-              /home/runner/work/ardupilot/ardupilot/ArduCopter.bin
-              /home/runner/work/ardupilot/ardupilot/ArduCopter.elf
+              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/ardupilot.elf
+              /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/ardupilot.bin
               /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
               /home/runner/work/ardupilot/ardupilot/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
            retention-days: 14
-           
