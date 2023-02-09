@@ -36,4 +36,4 @@ To resolve these vulnerabilities, this project aims to provide ultra low-cost ae
 
 * Results of real-time surveillance SHOULD be publishable to interested parties.
 
-# [Build your drone](https://github.com/AttackingInternetFascists/aifwing/wiki)
+# [Build your drone](https://github.com/AttackingInternetFascists/aifwing/wiki/Getting-Started)
