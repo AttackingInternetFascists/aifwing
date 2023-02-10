@@ -62,23 +62,35 @@ jobs:
           source ./export.sh
           cd ../..
           
-          python -m pip install --progress-bar off future lxml pymavlink MAVProxy pexpect flake8 geocoder empy dronecan
+          python -m pip install --progress-bar off future lxml pymavlink MAVProxy pexpect flake8 geocoder empy dronecan esptool
           which cmake
 
           mkdir -p ./dist/${{matrix.config}}
           ./waf configure --board ${{matrix.config}}
 
           ./waf plane
-          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./dist/${{matrix.config}}-plane.elf
           cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./dist/${{matrix.config}}-plane.bin
 
           ./waf copter
-          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./dist/${{matrix.config}}-copter.elf
           cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./dist/${{matrix.config}}-copter.bin
-          
+
           cp ./build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin           ./dist/${{matrix.config}}-bootloader.bin
           cp ./build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin ./dist/${{matrix.config}}-partition-table.bin
-      
+          
+          esptool --chip esp32 merge_bin \
+            --flash_mode dio --flash_freq 40m --flash_size 4MB \
+            -o ./dist/${{matrix.config}}-plane-merged.bin \
+            0x1000 ./dist/${{matrix.config}}-bootloader.bin \
+            0x8000 ./dist/${{matrix.config}}-partition-table.bin \
+            0x10000 ./dist/${{matrix.config}}-plane.bin
+          
+          esptool --chip esp32 merge_bin \
+            --flash_mode dio --flash_freq 40m --flash_size 4MB \
+            -o ./dist/${{matrix.config}}-copter-merged.bin \
+            0x1000 ./dist/${{matrix.config}}-bootloader.bin \
+            0x8000 ./dist/${{matrix.config}}-partition-table.bin \
+            0x10000 ./dist/${{matrix.config}}-copter.bin
+
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
