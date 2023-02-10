@@ -1,6 +1,7 @@
 name: ESP32 Build
 
 on: [push, pull_request, workflow_dispatch]
+
 concurrency:
   group: ci-${{github.workflow}}-${{ github.ref }}
   cancel-in-progress: true
@@ -64,16 +65,24 @@ jobs:
           python -m pip install --progress-bar off future lxml pymavlink MAVProxy pexpect flake8 geocoder empy dronecan
           which cmake
 
+          mkdir dist
           ./waf configure --board ${{matrix.config}}
-          ./waf plane
 
-      - name: Archive plane artifacts
-        uses: actions/upload-artifact@v3
+          ./waf plane
+          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./dist/${{matrix.config}}-plane.elf
+          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./dist/${{matrix.config}}-plane.bin
+
+          ./waf copter
+          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.elf ./dist/${{matrix.config}}-copter.elf
+          cp ./build/${{matrix.config}}/esp-idf_build/ardupilot.bin ./dist/${{matrix.config}}-copter.bin
+      
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-           name: ${{matrix.config}}-plane-binaries
-           path: |
-              /home/runner/work/aifwing/aifwing/build/esp32aif/esp-idf_build/ardupilot.elf
-              /home/runner/work/aifwing/aifwing/build/esp32aif/esp-idf_build/ardupilot.bin
-              /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
-              /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
-           retention-days: 14
+          files: |
+            /home/runner/work/aifwing/aifwing/${{matrix.config}}-plane.elf
+            /home/runner/work/aifwing/aifwing/${{matrix.config}}-plane.bin
+            /home/runner/work/aifwing/aifwing/${{matrix.config}}-copter.elf
+            /home/runner/work/aifwing/aifwing/${{matrix.config}}-copter.bin
+            /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin
+            /home/runner/work/aifwing/aifwing/build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin
