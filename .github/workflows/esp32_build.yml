@@ -84,5 +84,6 @@ jobs:
         with:
           file: ./dist/**/*
           tag: ${{ github.ref }}
+          repo_token: ${{ secrets.REPO_TOKEN }}
           overwrite: true
           file_glob: true
