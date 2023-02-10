@@ -82,8 +82,8 @@ jobs:
       - name: Upload binaries to release
         uses: svenstaro/upload-release-action@v2
         with:
+          tag: firmware
           file: ./dist/**/*
-          tag: ${{ github.ref }}
           repo_token: ${{ secrets.REPO_TOKEN }}
           overwrite: true
           file_glob: true
