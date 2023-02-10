@@ -6,6 +6,8 @@ module.exports = () => {
   return {
     webpack: {
       configure: (webpackConfig, { env }) => {
+        if (env === 'development') return webpackConfig
+
         const htmlWebpackPluginInstance = webpackConfig.plugins.find(p => p instanceof HtmlWebpackPlugin)
         
         if (htmlWebpackPluginInstance) {
