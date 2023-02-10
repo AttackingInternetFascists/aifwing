@@ -77,14 +77,14 @@ jobs:
           cp ./build/${{matrix.config}}/esp-idf_build/bootloader/bootloader.bin           ./dist/${{matrix.config}}-bootloader.bin
           cp ./build/${{matrix.config}}/esp-idf_build/partition_table/partition-table.bin ./dist/${{matrix.config}}-partition-table.bin
           
-          ${PYTHON_PATH}/bin/esptool.py --chip esp32 merge_bin \
+          python -m esptool --chip esp32 merge_bin \
             --flash_mode dio --flash_freq 40m --flash_size 4MB \
             -o ./dist/${{matrix.config}}-plane-merged.bin \
             0x1000 ./dist/${{matrix.config}}-bootloader.bin \
             0x8000 ./dist/${{matrix.config}}-partition-table.bin \
             0x10000 ./dist/${{matrix.config}}-plane.bin
           
-          ${PYTHON_PATH}/bin/esptool.py --chip esp32 merge_bin \
+          python -m esptool --chip esp32 merge_bin \
             --flash_mode dio --flash_freq 40m --flash_size 4MB \
             -o ./dist/${{matrix.config}}-copter-merged.bin \
             0x1000 ./dist/${{matrix.config}}-bootloader.bin \
