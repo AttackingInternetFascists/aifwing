@@ -18,6 +18,7 @@ jobs:
       - name: Install Prerequisites
         shell: bash
         run: |
+          npm install
           npm run build
           
           curl https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin > ./buld/manifest/plane.bin
