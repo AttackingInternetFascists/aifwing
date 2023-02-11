@@ -22,6 +22,8 @@ jobs:
 
           DISABLE_ESLINT_PLUGIN=true npm run build
           
+          mkdir -p ./build/manifest
+          
           curl https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin > ./build/manifest/plane.bin
           echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/plane.bin", "offset": 0 }] }] }' > ./build/manifest/plane.json
           
