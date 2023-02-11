@@ -1,7 +1,0 @@
-{
-  "name": "aif-plane",
-  "builds": [{
-    "chipFamily": "ESP32",
-    "parts": [{ "path": "/aifwing/plane.bin", "offset": 0 }]
-  }]
-}
