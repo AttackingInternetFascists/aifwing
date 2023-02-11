@@ -61,9 +61,13 @@ export default () => {
             </Card.Footer>
           </Card>
         ) : (
-          <Button onClick={onEnumerateDevices}>
-            Start Classifier
-          </Button>
+          <Card>
+            <Card.Body className="d-grid gap-2">
+              <Button block onClick={onEnumerateDevices}>
+                Start Classifier
+              </Button>
+            </Card.Body>
+          </Card>
         ) }
       </Col>
     </Row>

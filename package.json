@@ -22,9 +22,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "craco eject",
-    "predeploy": "craco build",
-    "deploy": "gh-pages -d build"
+    "eject": "craco eject"
   },
   "eslintConfig": {
     "extends": [
