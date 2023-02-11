@@ -13,7 +13,6 @@ export default () => {
   const [selectedDevice, setSelectedDevice] = React.useState()
   const [deviceOptions, setDeviceOptions] = React.useState([])
   const [detections, setDetections] = React.useState([])
-  const [camGranted, setCamGranted] = React.useState(false)
   
   const onEnumerateDevices = React.useCallback(() => {
     navigator.getUserMedia({ video: true }, () => {

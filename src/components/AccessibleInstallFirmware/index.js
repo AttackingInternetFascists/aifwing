@@ -16,7 +16,7 @@ export default () => (
           <Card.Title>Plane</Card.Title>
         </Card.Header>
         <Card.Footer className="p-0">
-          <esp-web-install-button manifest="./manifest/plane.json">
+          <esp-web-install-button manifest="/aifwing/manifest/plane.json">
             <div className="d-grid gap-2" slot="activate">
               <Button block>Install Firmware</Button>
             </div>
@@ -33,7 +33,7 @@ export default () => (
           <Card.Title>Copter</Card.Title>
         </Card.Header>
         <Card.Footer className="p-0">
-          <esp-web-install-button manifest="./manifest/copter.json">
+          <esp-web-install-button manifest="/aifwing/manifest/copter.json">
             <div className="d-grid gap-2" slot="activate">
               <Button block>Install Firmware</Button>
               </div>

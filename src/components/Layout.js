@@ -9,8 +9,8 @@ export default ({ children }) => (
     <Navbar bg="primary" variant="dark">
       <Container>
         <Nav>
-          <Nav.Link as={NavLink} to="/">Classifier</Nav.Link>
-          <Nav.Link as={NavLink} to="/flasher">Firmware</Nav.Link>
+          <Nav.Link as={NavLink} to="/aifwing">Classifier</Nav.Link>
+          <Nav.Link as={NavLink} to="/aifwing/flasher">Firmware</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
