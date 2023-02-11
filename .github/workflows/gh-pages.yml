@@ -24,14 +24,17 @@ jobs:
           
           mkdir -p ./build/manifest
           
-          curl https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin > ./build/manifest/plane.bin
-          echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/plane.bin", "offset": 0 }] }] }' > ./build/manifest/plane.json
+          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin  -O ./build/manifest/plane.bin
+          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-copter-merged.bin  -O ./build/manifest/copter.bin
+
+          file ./build/manifest/plane.bin
+          file ./build/manifest/copter.bin
           
-          curl https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-copter-merged.bin > ./build/manifest/copter.bin
+          echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/plane.bin", "offset": 0 }] }] }' > ./build/manifest/plane.json
           echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/copter.bin", "offset": 0 }] }] }' > ./build/manifest/copter.json
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: build
-          token: ${{ secrets.REPO_TOKEN }}
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #     folder: build
+      #     token: ${{ secrets.REPO_TOKEN }}
