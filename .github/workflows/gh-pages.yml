@@ -33,8 +33,8 @@ jobs:
           echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/plane.bin", "offset": 0 }] }] }' > ./build/manifest/plane.json
           echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/copter.bin", "offset": 0 }] }] }' > ./build/manifest/copter.json
 
-      # - name: Deploy
-      #   uses: JamesIves/github-pages-deploy-action@v4
-      #   with:
-      #     folder: build
-      #     token: ${{ secrets.REPO_TOKEN }}
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build
+          token: ${{ secrets.REPO_TOKEN }}
