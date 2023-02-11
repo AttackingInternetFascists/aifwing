@@ -30,4 +30,4 @@ jobs:
           curl https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-copter-merged.bin > ./build/manifest/copter.bin
           echo '{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://${{github.repository_owner}}.github.io/aifwing/manifest/copter.bin", "offset": 0 }] }] }' > ./build/manifest/copter.json
 
-          gh-pages -d build
+          npm run deploy
