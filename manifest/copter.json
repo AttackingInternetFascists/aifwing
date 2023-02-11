@@ -1,0 +1,1 @@
+{ "name": "aif-copter", "builds": [{ "chipFamily": "ESP32", "parts": [{ "path": "https://AttackingInternetFascists.github.io/aifwing/manifest/copter.bin", "offset": 0 }] }] }
