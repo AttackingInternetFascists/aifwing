@@ -24,8 +24,8 @@ jobs:
           
           mkdir -p ./build/manifest
           
-          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin  -O ./build/manifest/plane.bin
-          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-copter-merged.bin  -O ./build/manifest/copter.bin
+          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-plane-merged.bin -O ./build/manifest/plane.bin
+          wget https://github.com/${{github.repository}}/releases/download/firmware/esp32aif-copter-merged.bin -O ./build/manifest/copter.bin
 
           file ./build/manifest/plane.bin
           file ./build/manifest/copter.bin
