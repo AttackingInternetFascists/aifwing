@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+BOARD=$1
+AIRCRAFT=$2
+
+source ./modules/esp_idf/export.sh
+./waf configure --board=${BOARD}
+./waf ${AIRCRAFT} --upload

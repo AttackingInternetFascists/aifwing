@@ -57,7 +57,8 @@
 #define HAL_SERIAL9_BAUD				(115200/1000)
 
 //I2C Buses
-#define HAL_ESP32_I2C_BUSES				{.port=I2C_NUM_0, .sda=GPIO_NUM_21, .scl=GPIO_NUM_22, .speed=400*KHZ, .internal=true, .soft=true}
+#define HAL_ESP32_I2C_BUSES             {.port=I2C_NUM_0, .sda=GPIO_NUM_17, .scl=GPIO_NUM_21, .speed=400*KHZ, .internal=true, .soft=true}
+// #define HAL_ESP32_I2C_BUSES				{.port=I2C_NUM_0, .sda=GPIO_NUM_21, .scl=GPIO_NUM_22, .speed=400*KHZ, .internal=true, .soft=true}
 
 //SPI Buses
 #define HAL_ESP32_SPI_BUSES				{}
@@ -69,7 +70,7 @@
 #define HAL_ESP32_RCIN					GPIO_NUM_36
 
 //RCOUT
-#define HAL_ESP32_RCOUT					{ GPIO_NUM_25, GPIO_NUM_27, GPIO_NUM_33, GPIO_NUM_32, GPIO_NUM_22, GPIO_NUM_21 }
+#define HAL_ESP32_RCOUT					{ GPIO_NUM_27, GPIO_NUM_25, GPIO_NUM_33, GPIO_NUM_12, GPIO_NUM_4, GPIO_NUM_0 }
 
 //Inertial sensors
 #define HAL_INS_DEFAULT                             HAL_INS_MPU60XX_I2C
@@ -78,7 +79,8 @@
 
 //BAROMETER
 #define PROBE_BARO_I2C(driver, bus, addr, args ...) ADD_BACKEND(AP_Baro_ ## driver::probe(*this,std::move(GET_I2C_DEVICE(bus, addr)),##args))
-#define HAL_BARO_PROBE_LIST                         PROBE_BARO_I2C(MS56XX, 0, 0x77)
+#define HAL_BARO_PROBE_LIST                         PROBE_BARO_I2C(BMP280, 0, 0x76)
+// #define HAL_BARO_PROBE_LIST                         PROBE_BARO_I2C(MS56XX, 0, 0x77)
 
 //COMPASS
 #define ALLOW_ARM_NO_COMPASS
