@@ -21,20 +21,20 @@ To resolve these vulnerabilities, this project aims to provide ultra low-cost ae
 
 ### Low cost & easy to source parts
 
-* Aircraft SHOULD be as low cost as possible.
-* Parts used to build the aircraft MUST be easy to source.
-* Part selection and pricing SHOULD be based on amazon listings.
+* [ ] Aircraft SHOULD be as low cost as possible.
+* [ ] Parts used to build the aircraft MUST be easy to source.
+* [ ] Part selection and pricing SHOULD be based on amazon listings.
 
 ### Easy to build & operate
 
-* All reasonable efforts SHOULD be made to reduce the complexity of building & operating these aircraft.
-* Precompiled and ready-to-fly firmware SHOULD be provided for all aircraft/flight controller combinations.
-* Complex operations SHOULD be documented in as simple terms as possible.
+* [ ] All reasonable efforts SHOULD be made to reduce the complexity of building & operating these aircraft.
+* [ ] Precompiled and ready-to-fly firmware SHOULD be provided for all aircraft/flight controller combinations.
+* [ ] Complex operations SHOULD be documented in as simple terms as possible.
 
 ### Autopilot (waypoints, loitering, and return to home)
 
-* Aircraft in this repository MUST be capable of autopilot.
+* [ ] Aircraft in this repository MUST be capable of autopilot.
 
 ### Real-time threat mapping
 
-* Results of real-time surveillance SHOULD be publishable to interested parties.
+* [ ] Results of real-time surveillance SHOULD be publishable to interested parties.
